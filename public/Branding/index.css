@@ -1,0 +1,235 @@
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'GT Super Display';
+  src: url('/fonts/GT-Super-Display-Light-Trial.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ABC Favorit Variable';
+  src: url('/fonts/ABCFavoritVariable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --animate-spin: spin 1s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) infinite linear;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 8s infinite;
+}
+
+.animate-spin {
+  animation: var(--animate-spin);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes image-glow {
+  0% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
+  }
+
+  10% {
+    opacity: 0.7;
+    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99);
+  }
+
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+
+  0%,
+  90%,
+  to {
+    background-position: calc(-100% - var(--shimmer-width)) 0;
+  }
+
+  30%,
+  60% {
+    background-position: calc(100% + var(--shimmer-width)) 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm beige palette from Figma */
+    --background: 40 5% 90%;
+    --foreground: 0 0% 11%;
+
+    --muted: 40 3% 85%;
+    --muted-foreground: 180 1% 39%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 11%;
+
+    --border: 20 3% 85%;
+    --input: 20 3% 85%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 11%;
+
+    --primary: 0 0% 11%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 3% 85%;
+    --secondary-foreground: 0 0% 11%;
+
+    --accent: 24 63% 54%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --ring: 40 3% 75%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar colors */
+    --sidebar: 40 5% 90%;
+    --sidebar-foreground: 0 0% 11%;
+  }
+
+  .dark {
+    /* Warm dark palette */
+    --background: 30 5% 12%;
+    --foreground: 40 5% 90%;
+
+    --muted: 30 5% 18%;
+    --muted-foreground: 40 3% 60%;
+
+    --accent: 24 63% 54%;
+    --accent-foreground: 0 0% 100%;
+
+    --popover: 30 5% 15%;
+    --popover-foreground: 40 5% 90%;
+
+    --border: 30 5% 25%;
+    --input: 30 5% 25%;
+
+    --card: 30 5% 15%;
+    --card-foreground: 40 5% 90%;
+
+    --primary: 40 5% 90%;
+    --primary-foreground: 0 0% 11%;
+
+    --secondary: 30 5% 20%;
+    --secondary-foreground: 40 5% 90%;
+
+    --destructive: 0 63% 40%;
+    --destructive-foreground: 0 0% 100%;
+
+    --ring: 30 5% 35%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar colors */
+    --sidebar: 30 5% 15%;
+    --sidebar-foreground: 40 5% 90%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'ABC Favorit Variable', system-ui, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1,
+  h2 {
+    font-family: 'GT Super Display', serif;
+  }
+
+  h3 {
+    font-family: 'ABC Favorit Variable', system-ui, sans-serif;
+  }
+}

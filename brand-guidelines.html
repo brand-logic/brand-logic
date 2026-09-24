@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUSH RITUALS — Brand Guidelines</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0d0d0d;
+            --bg-secondary: #171717;
+            --bg-tertiary: #1f1f1f;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1a1;
+            --text-muted: #6b6b6b;
+            --accent: #c47e6c;
+            --accent-light: #d4917f;
+            --accent-subtle: rgba(196, 126, 108, 0.15);
+            --teal: #4a7c7c;
+            --teal-light: #7da3a3;
+            --sage: #8a9a7c;
+            --border: #2a2a2a;
+            --border-light: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(13, 13, 13, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 0 40px;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .nav-logo {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .nav-logo-text {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .nav-logo-sub {
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 40px 100px;
+            text-align: center;
+            background: radial-gradient(ellipse at center top, rgba(196, 126, 108, 0.08) 0%, transparent 60%);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent-subtle);
+            border: 1px solid rgba(196, 126, 108, 0.3);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--accent-light);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(48px, 8vw, 72px);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            background: linear-gradient(180deg, #ffffff 0%, #a1a1a1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 300;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero p strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px 100px;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 32px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+        }
+
+        .card-label {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .card-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Strategy Grid */
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .strategy-card.full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .value-item {
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+
+
+        .value-item h4 {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .value-item p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Messaging Pillars */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .pillar-item {
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .pillar-item h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .pillar-item p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Caption Example */
+        .caption-example {
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .caption-label {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .caption-text {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .caption-hashtags {
+            margin-top: 10px;
+            color: var(--teal);
+            font-size: 13px;
+        }
+
+        /* Brand Persona */
+        .persona-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .persona-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid var(--border);
+        }
+
+        .persona-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 22px;
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        .persona-archetype {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 16px;
+            display: inline-block;
+            background: var(--accent-subtle);
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+
+        .persona-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .persona-traits {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        .persona-traits li {
+            font-size: 13px;
+            color: var(--text-secondary);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .persona-traits li:last-child {
+            border-bottom: none;
+        }
+
+        .persona-traits li::before {
+            content: '●';
+            color: var(--accent);
+            font-size: 6px;
+            margin-top: 6px;
+        }
+
+        /* Voice & Tone Section - New Layout */
+        .voice-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        /* Sliders Column */
+        .sliders-column {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid var(--border);
+        }
+
+        .sliders-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .slider-group {
+            margin-bottom: 40px;
+        }
+
+        .slider-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .slider-group-title {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .slider-item {
+            display: grid;
+            grid-template-columns: 100px 1fr 100px;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .slider-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .slider-label-left {
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-align: right;
+        }
+
+        .slider-label-right {
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-align: left;
+        }
+
+        .slider-track {
+            height: 3px;
+            background: var(--text-muted);
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .slider-track::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: var(--text-primary);
+            border-radius: 2px;
+        }
+
+        .slider-item[data-value="70"] .slider-track::before {
+            width: 70%;
+        }
+
+        .slider-item[data-value="45"] .slider-track::before {
+            width: 45%;
+        }
+
+        .slider-item[data-value="75"] .slider-track::before {
+            width: 75%;
+        }
+
+        .slider-dot {
+            width: 16px;
+            height: 16px;
+            background: var(--bg-primary);
+            border: 3px solid var(--text-primary);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Voice Descriptions Column */
+        .voice-descriptions {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .voice-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid var(--border);
+        }
+
+        .voice-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .voice-title::before {
+            content: '';
+            width: 3px;
+            height: 16px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .voice-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .voice-example {
+            padding: 12px 16px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            border-left: 2px solid var(--teal);
+        }
+
+        .voice-example-text {
+            font-size: 13px;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        /* Visual Guardrails */
+        .guardrails-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .guardrail-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .guardrail-card h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .guardrail-visual {
+            height: 100px;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            overflow: hidden;
+        }
+
+        .guardrail-visual.warm {
+            background: linear-gradient(135deg, #e8ddd4 0%, #d4c4b0 100%);
+        }
+
+        .guardrail-visual.minimal {
+            background: #fafafa;
+            border: 1px solid #eee;
+        }
+
+        .guardrail-visual.organic {
+            background: linear-gradient(135deg, #7da3a3 0%, #8a9a7c 100%);
+        }
+
+        .guardrail-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Visual Examples Row */
+        .visual-examples {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .visual-example-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .visual-example-preview {
+            height: 100px;
+        }
+
+        .visual-example-preview.warm-palette {
+            background: linear-gradient(135deg, #e8ddd4 0%, #d4c4b0 100%);
+        }
+
+        .visual-example-preview.texture {
+            background: repeating-linear-gradient(45deg,
+                    #f5f0eb,
+                    #f5f0eb 2px,
+                    #ebe6e0 2px,
+                    #ebe6e0 4px);
+        }
+
+        .visual-example-preview.contrast {
+            background: linear-gradient(135deg, #1a1a1a 50%, #f5f5f5 50%);
+        }
+
+        .visual-example-label {
+            padding: 14px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Do's and Don'ts */
+        .guidelines-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .guideline-card {
+            background: var(--bg-card);
+            border-radius: 14px;
+            padding: 22px;
+            border: 1px solid var(--border);
+        }
+
+        .guideline-card.do {
+            border-top: 3px solid var(--teal);
+        }
+
+        .guideline-card.dont {
+            border-top: 3px solid var(--accent);
+        }
+
+        .guideline-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .guideline-icon {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .guideline-card.do .guideline-icon {
+            background: rgba(74, 124, 124, 0.2);
+            color: var(--teal);
+        }
+
+        .guideline-card.dont .guideline-icon {
+            background: var(--accent-subtle);
+            color: var(--accent);
+        }
+
+        .guideline-title {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .guideline-list {
+            list-style: none;
+        }
+
+        .guideline-list li {
+            font-size: 13px;
+            color: var(--text-secondary);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .guideline-list li:last-child {
+            border-bottom: none;
+        }
+
+        .guideline-list li::before {
+            content: '→';
+            color: var(--text-muted);
+            flex-shrink: 0;
+        }
+
+        /* Color Section */
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .color-swatch {
+            text-align: center;
+        }
+
+        .color-preview {
+            height: 90px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .color-info h4 {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .color-codes {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-family: 'SF Mono', 'Fira Code', monospace;
+        }
+
+        /* Use Cases */
+        .use-cases {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        .use-case {
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            padding: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .use-case h4 {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--accent);
+        }
+
+        .use-case p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Typography Section */
+        .type-showcase {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+
+        .type-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid var(--border);
+        }
+
+        .type-name {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .type-sample {
+            margin-bottom: 20px;
+        }
+
+        .type-sample.primary {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .type-sample.secondary {
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .type-big {
+            font-size: 44px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+
+        .type-alphabet {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 2;
+            letter-spacing: 0.03em;
+        }
+
+        .type-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Type Hierarchy - New Layout */
+        .type-hierarchy {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 32px 40px;
+            margin-top: 24px;
+            border: 1px solid var(--border);
+        }
+
+        .hierarchy-label {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 32px;
+        }
+
+        .hierarchy-item {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 40px;
+            align-items: baseline;
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hierarchy-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .hierarchy-meta {
+            text-align: right;
+        }
+
+        .hierarchy-font-name {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .hierarchy-font-weight {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+
+        .hierarchy-h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .hierarchy-h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .hierarchy-body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .hierarchy-button {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 12px 28px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            border-radius: 4px;
+        }
+
+        /* Applications */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .app-card {
+            background: var(--bg-card);
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: transform 0.3s;
+        }
+
+        .app-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .app-preview {
+            height: 110px;
+            background: var(--bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .app-preview.letterhead {
+            background: #1a1a1a;
+        }
+
+        .app-preview.letterhead::before {
+            content: 'HUSH';
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: white;
+        }
+
+        .app-preview.card-preview {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--teal) 100%);
+        }
+
+        .app-preview.social {
+            background: linear-gradient(135deg, #2d2520 0%, #1a1a1a 100%);
+        }
+
+        .app-preview.merch {
+            background: var(--bg-secondary);
+        }
+
+        .app-label {
+            padding: 14px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .footer-logo-text {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .footer-logo-sub {
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+        }
+
+        .footer p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+
+            .strategy-grid,
+            .persona-grid,
+            .voice-section,
+            .type-showcase,
+            .guidelines-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .color-palette {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pillars-grid,
+            .guardrails-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .apps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .use-cases {
+                grid-template-columns: 1fr;
+            }
+
+            .hierarchy-item {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .hierarchy-meta {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 120px 20px 60px;
+            }
+
+            .main {
+                padding: 0 20px 60px;
+            }
+
+            .color-palette {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .slider-item {
+                grid-template-columns: 80px 1fr 80px;
+            }
+
+            .slider-label-left,
+            .slider-label-right {
+                font-size: 11px;
+            }
+        }
+
+        @media print {
+            .nav {
+                display: none;
+            }
+
+            body {
+                background: white;
+                color: black;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="nav-logo">
+                <span class="nav-logo-text">Hush Rituals</span>
+                <span class="nav-logo-sub">Brand Guidelines</span>
+            </div>
+            <div class="nav-links">
+                <a href="#strategy">Strategy</a>
+                <a href="#persona">Persona</a>
+                <a href="#voice">Voice</a>
+                <a href="#visual">Visual</a>
+                <a href="#colors">Colors</a>
+                <a href="#typography">Type</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-badge">
+            <span>📘</span>
+            <span>Brand Guidelines v1.0</span>
+        </div>
+        <h1>HUSH RITUALS</h1>
+        <p><strong>Structuring Clarity.</strong> Sustained Performance. <strong>Human-Centered Work.</strong></p>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <!-- Brand Strategy Section -->
+        <section class="section" id="strategy">
+            <div class="section-header">
+                <div class="section-label">Foundation</div>
+                <h2 class="section-title">Brand Strategy</h2>
+            </div>
+
+            <div class="strategy-grid">
+                <div class="card strategy-card">
+                    <div class="card-label">Mission Statement</div>
+                    <h3 class="card-title">Why We Exist</h3>
+                    <p class="card-text">To guide individuals and organizations toward sustainable high performance
+                        through structured rituals that honor the natural rhythm of focused work and intentional rest.
+                    </p>
+                </div>
+
+                <div class="card strategy-card">
+                    <div class="card-label">Vision Statement</div>
+                    <h3 class="card-title">Where We're Going</h3>
+                    <p class="card-text">A world where clarity replaces chaos, where success is measured not by hours
+                        worked but by depth achieved, and where every professional has the tools for human-centered
+                        performance.</p>
+                </div>
+
+                <div class="card strategy-card full-width">
+                    <div class="card-label">Positioning Statement</div>
+                    <p class="card-text">For high-performers who seek sustainable success, HUSH RITUALS is the
+                        operational clarity framework that structures the chaos of modern work. Unlike productivity
+                        hacks that demand more from you, we architect systems that restore your natural capacity for
+                        focused, meaningful work.</p>
+                </div>
+
+                <div class="card strategy-card full-width">
+                    <div class="card-label">Brand Values</div>
+                    <div class="values-grid">
+                        <div class="value-item">
+                            <h4>Structure</h4>
+                            <p>Clarity through intentional design</p>
+                        </div>
+                        <div class="value-item">
+                            <h4>Sustainability</h4>
+                            <p>Performance that endures</p>
+                        </div>
+                        <div class="value-item">
+                            <h4>Intentionality</h4>
+                            <p>Every action with purpose</p>
+                        </div>
+                        <div class="value-item">
+                            <h4>Human-First</h4>
+                            <p>Systems that serve people</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card strategy-card full-width">
+                    <div class="card-label">Messaging Pillars</div>
+                    <div class="pillars-grid">
+                        <div class="pillar-item">
+                            <h4>Structured Clarity</h4>
+                            <p>We transform overwhelming complexity into elegant systems. Our frameworks bring order
+                                without rigidity.</p>
+                        </div>
+                        <div class="pillar-item">
+                            <h4>Sustained Performance</h4>
+                            <p>Real productivity isn't sprinting until burnout. It's the quiet consistency of
+                                well-designed rituals.</p>
+                        </div>
+                        <div class="pillar-item">
+                            <h4>Human-Centered Work</h4>
+                            <p>We design for humans, not machines. Our approach honors natural rhythms and cognitive
+                                limits.</p>
+                        </div>
+                    </div>
+
+                    <div class="caption-example">
+                        <div class="caption-label">Social Caption Example</div>
+                        <p class="caption-text">The most productive thing you can do today isn't adding to your to-do
+                            list. It's subtracting. Clarity isn't found in doing more—it's architected through doing
+                            less, better.</p>
+                        <p class="caption-hashtags">#HushRituals #StructuredClarity #SustainedPerformance</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Persona Section -->
+        <section class="section" id="persona">
+            <div class="section-header">
+                <div class="section-label">Brand Character</div>
+                <h2 class="section-title">Brand Persona</h2>
+            </div>
+
+            <div class="persona-grid">
+                <div class="persona-card">
+                    <span class="persona-archetype">Archetype: The Architect</span>
+                    <h3 class="persona-title">"The Structural Architect"</h3>
+                    <p class="persona-desc">HUSH RITUALS embodies the calm authority of a master architect—one who sees
+                        the invisible structures that shape performance. She doesn't rush to fill silence with noise.
+                        Instead, she holds space for reflection.</p>
+                    <ul class="persona-traits">
+                        <li>Measured and deliberate in communication</li>
+                        <li>Confident but never arrogant</li>
+                        <li>Values depth over breadth</li>
+                        <li>Creates containers, not constraints</li>
+                    </ul>
+                </div>
+
+                <div class="persona-card">
+                    <div class="card-label">Audience</div>
+                    <h4 class="card-title" style="margin-top: 8px;">Who We're Speaking To</h4>
+                    <ul class="persona-traits">
+                        <li><strong>High-performers</strong> who sense there's a better way</li>
+                        <li><strong>Executives & founders</strong> tired of grinding</li>
+                        <li><strong>Creative professionals</strong> seeking structure</li>
+                        <li><strong>Those seeking sustainable success</strong></li>
+                    </ul>
+
+                    <div
+                        style="margin-top: 20px; padding: 14px; background: var(--bg-tertiary); border-radius: 8px; border: 1px solid var(--border);">
+                        <div class="card-label">They Say</div>
+                        <p class="card-text" style="font-style: italic;">"I'm successful, but it doesn't feel
+                            sustainable."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Voice & Tone Section - New Layout -->
+        <section class="section" id="voice">
+            <div class="section-header">
+                <div class="section-label">Communication</div>
+                <h2 class="section-title">Brand Voice & Tone</h2>
+            </div>
+
+            <div class="voice-section">
+                <!-- Sliders Column -->
+                <div class="sliders-column">
+                    <div class="slider-group">
+                        <div class="slider-group-title">Tone of Voice</div>
+
+                        <div class="slider-item" data-value="70">
+                            <span class="slider-label-left">Conversational</span>
+                            <div class="slider-track">
+                                <div class="slider-dot" style="left: 70%;"></div>
+                            </div>
+                            <span class="slider-label-right">Authoritative</span>
+                        </div>
+
+                        <div class="slider-item" data-value="45">
+                            <span class="slider-label-left">Calm</span>
+                            <div class="slider-track">
+                                <div class="slider-dot" style="left: 45%;"></div>
+                            </div>
+                            <span class="slider-label-right">Energetic</span>
+                        </div>
+
+                        <div class="slider-item" data-value="75">
+                            <span class="slider-label-left">Traditional</span>
+                            <div class="slider-track">
+                                <div class="slider-dot" style="left: 75%;"></div>
+                            </div>
+                            <span class="slider-label-right">Innovative</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Voice Descriptions Column -->
+                <div class="voice-descriptions">
+                    <div class="voice-card">
+                        <h4 class="voice-title">Calm Authority</h4>
+                        <p class="voice-desc">We speak with quiet confidence. No hype, no urgency-manufacturing. Our
+                            authority comes from depth of insight.</p>
+                        <div class="voice-example">
+                            <p class="voice-example-text">"Sustainable performance isn't built—it's architected. One
+                                ritual at a time."</p>
+                        </div>
+                    </div>
+
+                    <div class="voice-card">
+                        <h4 class="voice-title">Precise & Intentional</h4>
+                        <p class="voice-desc">Every word earns its place. We favor clarity over cleverness, precision
+                            over prose.</p>
+                        <div class="voice-example">
+                            <p class="voice-example-text">"Less noise. More signal. That's the ritual."</p>
+                        </div>
+                    </div>
+
+                    <div class="voice-card">
+                        <h4 class="voice-title">Warmly Professional</h4>
+                        <p class="voice-desc">We're approachable without being casual. Human, but never informal.</p>
+                        <div class="voice-example">
+                            <p class="voice-example-text">"You already know what needs to change. We're here to help you
+                                build the structure."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Guardrails Section -->
+        <section class="section" id="visual">
+            <div class="section-header">
+                <div class="section-label">Visual Identity</div>
+                <h2 class="section-title">Visual Guardrails</h2>
+            </div>
+
+            <div class="guardrails-grid">
+                <div class="guardrail-card">
+                    <div class="guardrail-visual warm"></div>
+                    <h4>Warm Minimalism</h4>
+                    <p class="guardrail-desc">Clean lines softened by warm, organic tones. Never cold or clinical.
+                        Sophistication with soul.</p>
+                </div>
+                <div class="guardrail-card">
+                    <div class="guardrail-visual minimal"></div>
+                    <h4>Intentional White Space</h4>
+                    <p class="guardrail-desc">Breathing room is non-negotiable. Every element needs space to exist with
+                        purpose. Silence made visible.</p>
+                </div>
+                <div class="guardrail-card">
+                    <div class="guardrail-visual organic"></div>
+                    <h4>Organic Architecture</h4>
+                    <p class="guardrail-desc">Geometric forms with natural softness. Structured but not rigid. Human,
+                        not mechanical.</p>
+                </div>
+            </div>
+
+            <div class="visual-examples">
+                <div class="visual-example-card">
+                    <div class="visual-example-preview warm-palette"></div>
+                    <div class="visual-example-label">Warm neutral palettes</div>
+                </div>
+                <div class="visual-example-card">
+                    <div class="visual-example-preview texture"></div>
+                    <div class="visual-example-label">Subtle textures for depth</div>
+                </div>
+                <div class="visual-example-card">
+                    <div class="visual-example-preview contrast"></div>
+                    <div class="visual-example-label">Confident use of contrast</div>
+                </div>
+            </div>
+
+            <div class="guidelines-grid">
+                <div class="guideline-card do">
+                    <div class="guideline-header">
+                        <div class="guideline-icon">✓</div>
+                        <span class="guideline-title">Do</span>
+                    </div>
+                    <ul class="guideline-list">
+                        <li>Use generous margins and breathing room</li>
+                        <li>Favor warm neutrals over stark whites</li>
+                        <li>Keep compositions balanced and intentional</li>
+                    </ul>
+                </div>
+                <div class="guideline-card dont">
+                    <div class="guideline-header">
+                        <div class="guideline-icon">✕</div>
+                        <span class="guideline-title">Don't</span>
+                    </div>
+                    <ul class="guideline-list">
+                        <li>Crowd elements without breathing room</li>
+                        <li>Use harsh, clinical whites or neons</li>
+                        <li>Include generic stock photography</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Color Section -->
+        <section class="section" id="colors">
+            <div class="section-header">
+                <div class="section-label">Visual Identity</div>
+                <h2 class="section-title">Color Palette</h2>
+            </div>
+
+            <div class="color-palette">
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #1a1a1a;"></div>
+                    <div class="color-info">
+                        <h4>Warm Black</h4>
+                        <div class="color-codes">#1A1A1A</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #c47e6c;"></div>
+                    <div class="color-info">
+                        <h4>Terracotta</h4>
+                        <div class="color-codes">#C47E6C</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #4a7c7c;"></div>
+                    <div class="color-info">
+                        <h4>Deep Teal</h4>
+                        <div class="color-codes">#4A7C7C</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #8a9a7c;"></div>
+                    <div class="color-info">
+                        <h4>Sage</h4>
+                        <div class="color-codes">#8A9A7C</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #f8f7f5;"></div>
+                    <div class="color-info">
+                        <h4>Warm White</h4>
+                        <div class="color-codes">#F8F7F5</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-bottom: 20px;">
+                <div class="card-label">Use Cases</div>
+                <div class="use-cases">
+                    <div class="use-case">
+                        <h4>Warm Black</h4>
+                        <p>Primary text, headers, premium applications</p>
+                    </div>
+                    <div class="use-case">
+                        <h4>Terracotta</h4>
+                        <p>Accent elements, CTAs, warmth injection</p>
+                    </div>
+                    <div class="use-case">
+                        <h4>Deep Teal</h4>
+                        <p>Secondary accents, links, calm authority</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guidelines-grid">
+                <div class="guideline-card do">
+                    <div class="guideline-header">
+                        <div class="guideline-icon">✓</div>
+                        <span class="guideline-title">Do</span>
+                    </div>
+                    <ul class="guideline-list">
+                        <li>Lead with Warm Black for authority</li>
+                        <li>Use Terracotta sparingly for warmth</li>
+                        <li>Maintain 60-30-10 color ratio</li>
+                    </ul>
+                </div>
+                <div class="guideline-card dont">
+                    <div class="guideline-header">
+                        <div class="guideline-icon">✕</div>
+                        <span class="guideline-title">Don't</span>
+                    </div>
+                    <ul class="guideline-list">
+                        <li>Overuse accent colors</li>
+                        <li>Substitute pure black for Warm Black</li>
+                        <li>Introduce colors outside the palette</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography Section -->
+        <section class="section" id="typography">
+            <div class="section-header">
+                <div class="section-label">Visual Identity</div>
+                <h2 class="section-title">Typography</h2>
+            </div>
+
+            <div class="type-showcase">
+                <div class="type-card">
+                    <div class="type-name">Primary — Plus Jakarta Sans</div>
+                    <div class="type-sample primary">
+                        <div class="type-big">Aa Bb Cc</div>
+                        <div class="type-alphabet">
+                            ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+                            abcdefghijklmnopqrstuvwxyz<br>
+                            0123456789
+                        </div>
+                    </div>
+                    <p class="type-desc"><strong>Plus Jakarta Sans</strong> serves as our primary display typeface.
+                        Geometric clarity with humanist touches.</p>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-name">Secondary — DM Sans</div>
+                    <div class="type-sample secondary">
+                        <div class="type-big">Aa Bb Cc</div>
+                        <div class="type-alphabet">
+                            ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+                            abcdefghijklmnopqrstuvwxyz<br>
+                            0123456789
+                        </div>
+                    </div>
+                    <p class="type-desc"><strong>DM Sans</strong> provides excellent readability for body text.
+                        Low-contrast, geometric design.</p>
+                </div>
+            </div>
+
+            <!-- Type Hierarchy - New Layout Like PNG -->
+            <div class="type-hierarchy">
+                <div class="hierarchy-label">Type Hierarchy Example</div>
+
+                <div class="hierarchy-item">
+                    <div class="hierarchy-meta">
+                        <div class="hierarchy-font-name">Plus Jakarta</div>
+                        <div class="hierarchy-font-weight">SemiBold</div>
+                    </div>
+                    <div class="hierarchy-content">
+                        <p class="hierarchy-h1">Structuring Clarity</p>
+                        <p class="hierarchy-h2">Welcome to HUSH RITUALS</p>
+                    </div>
+                </div>
+
+                <div class="hierarchy-item">
+                    <div class="hierarchy-meta">
+                        <div class="hierarchy-font-name">DM Sans</div>
+                        <div class="hierarchy-font-weight">Regular</div>
+                    </div>
+                    <div class="hierarchy-content">
+                        <p class="hierarchy-body">The antidote to chaos is not control—it's ritual. We architect systems
+                            that honor natural rhythms of focused work and intentional rest, creating sustainable
+                            performance.</p>
+                    </div>
+                </div>
+
+                <div class="hierarchy-item">
+                    <div class="hierarchy-meta">
+                        <div class="hierarchy-font-name">Plus Jakarta</div>
+                        <div class="hierarchy-font-weight">Medium</div>
+                    </div>
+                    <div class="hierarchy-content">
+                        <span class="hierarchy-button">Book a Session</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guidelines-grid">
+                <div class="guideline-card do">
+                    <div class="guideline-header">
+                        <div class="guideline-icon">✓</div>
+                        <span class="guideline-title">Do</span>
+                    </div>
+                    <ul class="guideline-list">
+                        <li>Use Plus Jakarta Sans for all headings</li>
+                        <li>Maintain generous line-height (1.6-1.8)</li>
+                        <li>Create hierarchy using weight, not just size</li>
+                    </ul>
+                </div>
+                <div class="guideline-card dont">
+                    <div class="guideline-header">
+                        <div class="guideline-icon">✕</div>
+                        <span class="guideline-title">Don't</span>
+                    </div>
+                    <ul class="guideline-list">
+                        <li>Mix more than two typefaces</li>
+                        <li>Set body text smaller than 14px</li>
+                        <li>Use all-caps for paragraphs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Applications Section -->
+        <section class="section" id="applications">
+            <div class="section-header">
+                <div class="section-label">In Practice</div>
+                <h2 class="section-title">Brand Applications</h2>
+            </div>
+
+            <div class="apps-grid">
+                <div class="app-card">
+                    <div class="app-preview letterhead"></div>
+                    <div class="app-label">Letterhead</div>
+                </div>
+                <div class="app-card">
+                    <div class="app-preview card-preview"></div>
+                    <div class="app-label">Business Card</div>
+                </div>
+                <div class="app-card">
+                    <div class="app-preview social"></div>
+                    <div class="app-label">Social Media</div>
+                </div>
+                <div class="app-card">
+                    <div class="app-preview merch"></div>
+                    <div class="app-label">Print Materials</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">
+            <span class="footer-logo-text">HUSH RITUALS</span>
+            <span class="footer-logo-sub">Structuring Clarity</span>
+        </div>
+        <p>© 2026 HUSH RITUALS. All rights reserved. Brand Guidelines v1.0</p>
+    </footer>
+</body>
+
+</html>

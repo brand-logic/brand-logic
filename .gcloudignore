@@ -1,0 +1,15 @@
+.gcloudignore
+.git
+.gitignore
+.dockerignore
+node_modules
+.next
+.env.local
+.env.*.local
+.agent
+.gemini
+.DS_Store
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

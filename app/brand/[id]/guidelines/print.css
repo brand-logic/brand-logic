@@ -1,0 +1,76 @@
+/**
+ * Print / PDF export stylesheet for /brand/:id/guidelines
+ * Applied when:  @media print  OR  body.pdf-export is set
+ *
+ * Usage with existing client-side PDF button:
+ * - The existing html-to-image capture of #brand-guidelines picks up
+ *   computed styles automatically — no extra class needed.
+ * - If a server-side Puppeteer route is added later, it should set
+ *   body.pdf-export before printing.
+ */
+
+@media print {
+  /* Hide all interactive chrome */
+  .brand-summary-sticky-nav,
+  .wizard-sidebar,
+  aside {
+    display: none !important;
+  }
+
+  /* Remove sidebar offset */
+  main {
+    margin-left: 0 !important;
+  }
+
+  /* Full bleed document */
+  body {
+    background: #F5F3EE !important;
+  }
+
+  #brand-guidelines {
+    max-width: 1440px !important;
+    width: 1440px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #F5F3EE !important;
+  }
+
+  .brand-summary-content {
+    padding: 0 80px !important;
+    background-color: #F5F3EE !important;
+  }
+
+  /* Disable animations and transitions */
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Ensure backgrounds print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+/* ── Class-based PDF export (for future Puppeteer route) ── */
+body.pdf-export .brand-summary-sticky-nav,
+body.pdf-export aside {
+  display: none !important;
+}
+
+body.pdf-export main {
+  margin-left: 0 !important;
+}
+
+body.pdf-export #brand-guidelines {
+  max-width: 1440px !important;
+  width: 1440px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.pdf-export * {
+  animation: none !important;
+  transition: none !important;
+}

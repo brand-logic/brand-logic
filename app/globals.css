@@ -1,26 +1,1335 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
+
+
+/* Fonts loaded via next/font/local in layout.tsx */
+
+/* ============================================================
+   TAILWIND V4 @theme
+   Tokens usable as Tailwind classes, e.g.:
+     bg-cosmos-bg  text-cosmos-muted  rounded-cosmos-card
+   ============================================================ */
 
 @theme inline {
+
+  /* --- Typography --- */
+  --font-sans: var(--font-favorit), "Favorit", system-ui, sans-serif;
+  --font-display: var(--font-gt-super), Georgia, serif;
+
+  /* --- Shadcn semantic aliases --- */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* --- Radii --- */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  /* ================================================================
+     YOUR EXISTING BRAND TOKENS  (preserved from original globals.css)
+     ================================================================ */
+  --color-gold: #D4AF37;
+  --color-brand-dark: #1a1a1a;
+  --color-brand-light: #E8E5DF;
+  --color-warm-bg: #EDEAE4;
+  --color-warm-input: #f5f4f2;
+  --color-warm-sidebar: #E8E7E5;
+  --color-warm-sidebar-text: #212121;
+  --color-warm-headline: #1D1D1D;
+  --color-warm-body: #636464;
+  --color-warm-border: #D0CDC7;
+  --color-brand-pink: #E874CD;
+  --color-brand-teal: #2F4A54;
+  --color-brand-beige: #C9C480;
+  --color-brand-burgundy: #3C0C04;
+  --color-brand-blue: #5B7CE9;
+  --color-brand-darker: #111111;
+  --color-brand-gray: #636464;
+
+  /* ================================================================
+     COSMOS.SO DESIGN TOKENS
+     Extracted by visual analysis of 11 screenshots across:
+       /following, /shop, /extension, /settings/profile,
+       /<username>, /<username>/metric, /e/<id>
+     ================================================================
+
+     BACKGROUNDS & SURFACES
+     ───────────────────────
+     The entire authenticated app uses a single warm parchment as
+     the universal page background. Cards and modals float on white.
+     The extension tutorial uses a dedicated dark shell.              */
+
+  --color-cosmos-bg: #EDEAE4;
+  /* page bg — every screen */
+  --color-cosmos-surface: #FFFFFF;
+  /* cards, modals, popovers */
+  --color-cosmos-surface-alt: #F2F0EC;
+  /* "Finish Setup" panel, inset areas */
+  --color-cosmos-surface-input: #F0EDE8;
+  /* input fields inside modals */
+  --color-cosmos-overlay: rgba(0, 0, 0, 0.45);
+  /* modal scrim */
+
+  /* Dark modal (extension tutorial — Image 4) */
+  --color-cosmos-dark-modal: #2C2C2C;
+  --color-cosmos-dark-video: #1E1E1E;
+
+  /* BORDERS */
+  --color-cosmos-border: #DDD9D3;
+  /* default subtle warm grey */
+  --color-cosmos-border-strong: #C8C4BE;
+  /* dividers inside modals */
+  --color-cosmos-border-input: #D8D4CE;
+  /* input field borders */
+
+  /* TEXT */
+  --color-cosmos-text: #1A1A1A;
+  /* primary — headings, nav labels */
+  --color-cosmos-text-secondary: #666666;
+  /* meta: "01 Follower", timestamps */
+  --color-cosmos-text-muted: #999999;
+  /* placeholders, @handles */
+  --color-cosmos-text-on-dark: #FFFFFF;
+  /* text on dark surfaces / image overlays */
+
+  /* BUTTONS */
+  --color-cosmos-btn-primary: #1A1A1A;
+  /* "Create", "Done", "Choose what's visible" */
+  --color-cosmos-btn-primary-fg: #FFFFFF;
+  --color-cosmos-btn-secondary: #E8E5DF;
+  /* "Dismiss", "Edit Profile" */
+  --color-cosmos-btn-secondary-fg: #1A1A1A;
+  --color-cosmos-btn-hover-tint: rgba(0, 0, 0, 0.06);
+  /* ghost hover bg */
+
+  /* STATES & ACCENTS */
+  --color-cosmos-toggle-on: #34C759;
+  /* iOS-style green toggle (Customize Feed) */
+  --color-cosmos-price-badge: #000000;
+  /* price pill on image cards */
+  --color-cosmos-fab: #1A1A1A;
+  /* floating action button */
+  --color-cosmos-fab-fg: #FFFFFF;
+  --color-cosmos-back-to-top: #3A3A3A;
+  /* "Back to top" pill */
+
+  /* LAYOUT DIMENSIONS */
+  --cosmos-header-height: 56px;
+  /* desktop nav (measured from screenshots) */
+  --cosmos-header-height-mobile: 82px;
+  /* from element.css --layout-header-height */
+  --cosmos-header-height-with-banner: 78px;
+  /* from element.css */
+  --cosmos-mobile-bottom-nav: 70px;
+  /* from element.css */
+  --cosmos-right-panel-width: 240px;
+  /* connections / suggested sidebar */
+  --cosmos-settings-sidebar-width: 180px;
+  /* settings modal left nav */
+  --cosmos-content-max-width: 3170px;
+  /* from element.css max-width value */
+
+  /* IMAGE GRID */
+  --cosmos-grid-gap: 6px;
+  /* gap between image cards */
+  --cosmos-grid-col-min: 200px;
+  /* min column in masonry grid */
+  --cosmos-grid-col-banner: 260px;
+  /* min col for shop banner row */
+
+  /* RADII */
+  --cosmos-radius-card: 8px;
+  /* image cards */
+  --cosmos-radius-modal: 16px;
+  /* dialogs & settings panels */
+  --cosmos-radius-pill: 9999px;
+  /* buttons, badges, search bar */
+  --cosmos-radius-input: 8px;
+  /* text inputs */
+  --cosmos-radius-banner: 12px;
+  /* shop hero banners */
+
+  /* SHADOWS */
+  --cosmos-shadow-card: none;
+  --cosmos-shadow-modal: none;
+  --cosmos-shadow-popover: none;
+  --cosmos-shadow-fab: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ============================================================
+   CSS CUSTOM PROPERTIES  —  runtime values for Shadcn + Tailwind
+   ============================================================ */
+
+:root {
+  --radius: 0.75rem;
+
+  /* Cosmos-matched warm light theme.
+     --background is set to the parchment #EDEAE4 observed across
+     every authenticated page screenshot. */
+
+  --background: #EDEAE4;
+  --foreground: #1A1A1A;
+
+  --card: #E8E5DF;
+  --card-foreground: #1A1A1A;
+
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A1A;
+
+  --primary: #1A1A1A;
+  --primary-foreground: #ECEBEA;
+
+  --secondary: #E8E5DF;
+  --secondary-foreground: #1A1A1A;
+
+  --muted: #F2F0EC;
+  --muted-foreground: #888888;
+
+  --accent: #F0EDE8;
+  --accent-foreground: #1A1A1A;
+
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+
+  --border: #DDD9D3;
+  --input: #DDD9D3;
+  --ring: #1A1A1A;
+
+  --chart-1: #D4AF37;
+  --chart-2: #E874CD;
+  --chart-3: #5B7CE9;
+  --chart-4: #2F4A54;
+  --chart-5: #C9C480;
+
+  /* Sidebar — matches cosmos right panel / nav tone */
+  --sidebar: #EDEAE4;
+  --sidebar-foreground: #1A1A1A;
+  --sidebar-primary: #1A1A1A;
+  --sidebar-primary-foreground: #F4F4F2;
+  --sidebar-accent: rgba(0, 0, 0, 0.05);
+  --sidebar-accent-foreground: #1A1A1A;
+  --sidebar-border: #DDD9D3;
+  --sidebar-ring: #1A1A1A;
+
+  /* Cosmos layout vars (mirrors cosmos.so root injection) */
+  --layout-header-height: 56px;
+  --smart-app-banner-height: 0px;
+  --mobile-bottom-navbar-height: 70px;
+  --mobile-header-with-banner-height: 78px;
+}
+
+/* ── Cosmos dark variant ──
+   Apply class="cosmos-dark" to <body> or a wrapper.
+   Matches the dark extension modal and scrimmed overlay states. */
+.cosmos-dark {
+  --background: #1A1A1A;
+  --foreground: #F0EDE8;
+  --card: #2C2C2C;
+  --card-foreground: #F0EDE8;
+  --popover: #2C2C2C;
+  --popover-foreground: #F0EDE8;
+  --primary: #FFFFFF;
+  --primary-foreground: #1A1A1A;
+  --secondary: #3A3A3A;
+  --secondary-foreground: #F0EDE8;
+  --muted: #2A2A2A;
+  --muted-foreground: #999999;
+  --accent: #333333;
+  --accent-foreground: #F0EDE8;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #3A3A3A;
+  --input: #3A3A3A;
+  --ring: #FFFFFF;
+  --sidebar: #1A1A1A;
+  --sidebar-foreground: #F0EDE8;
+  --sidebar-primary: #FFFFFF;
+  --sidebar-primary-foreground: #1A1A1A;
+  --sidebar-accent: rgba(255, 255, 255, 0.08);
+  --sidebar-accent-foreground: #F0EDE8;
+  --sidebar-border: rgba(255, 255, 255, 0.10);
+  --sidebar-ring: #FFFFFF;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* Cosmos-style transitions observed in page/card behaviour */
+@keyframes cosmos-fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes cosmos-scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cosmos-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cosmos-modal-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(6px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-cosmos-fade {
+  animation: cosmos-fade 0.3s ease forwards;
+}
+
+.animate-cosmos-scale {
+  animation: cosmos-scale-in 0.25s ease forwards;
+}
+
+.animate-cosmos-slide {
+  animation: cosmos-slide-up 0.35s ease forwards;
+}
+
+.animate-cosmos-modal {
+  animation: cosmos-modal-in 0.28s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+/* ============================================================
+   COMPONENT LAYER
+   All patterns observed across the 11 screenshots.
+   ============================================================ */
+
+@layer components {
+
+  /* ── Glassmorphism (your existing utility) ── */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius);
+  }
+
+  /* ──────────────────────────────────────────────
+     NAV BAR  (present in every screenshot)
+     Parchment bg, ~56px tall, no border,
+     logo left · tabs center · actions right.
+  ────────────────────────────────────────────── */
+  .cosmos-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--layout-header-height);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    background: var(--color-cosmos-bg);
+    z-index: 50;
+  }
+
+  .cosmos-nav-link {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-cosmos-text);
+    text-decoration: none;
+    padding: 4px 2px;
+    transition: opacity 0.15s ease;
+  }
+
+  .cosmos-nav-link:hover {
+    opacity: 0.55;
+  }
+
+  .cosmos-nav-link.active {
+    font-weight: 700;
+  }
+
+  /* Search pill — white capsule, thin border */
+  .cosmos-search {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #FFFFFF;
+    border: 1px solid var(--color-cosmos-border);
+    border-radius: var(--cosmos-radius-pill);
+    padding: 6px 14px;
+    font-size: 13px;
+    color: var(--color-cosmos-text-muted);
+    min-width: 280px;
+    transition: box-shadow 0.15s ease;
+  }
+
+  .cosmos-search:focus-within {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.10);
+  }
+
+  /* ──────────────────────────────────────────────
+     BUTTONS
+     Primary: solid black pill  ("Create", "Done", "Choose what's visible")
+     Secondary: parchment pill  ("Dismiss", "Edit Profile")
+     Ghost: transparent         ("Follow", menu items)
+  ────────────────────────────────────────────── */
+  .cosmos-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border-radius: var(--cosmos-radius-pill);
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    background: var(--color-cosmos-btn-primary);
+    color: var(--color-cosmos-btn-primary-fg);
+    transition: opacity 0.15s ease, transform 0.1s ease;
+  }
+
+  .cosmos-btn:hover {
+    opacity: 0.85;
+  }
+
+  .cosmos-btn:active {
+    opacity: 0.7;
+    transform: scale(0.98);
+  }
+
+  .cosmos-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border-radius: var(--cosmos-radius-pill);
+    font-size: 14px;
+    font-weight: 400;
+    border: none;
+    cursor: pointer;
+    background: var(--color-cosmos-btn-secondary);
+    color: var(--color-cosmos-btn-secondary-fg);
+    transition: opacity 0.15s ease;
+  }
+
+  .cosmos-btn-secondary:hover {
+    opacity: 0.75;
+  }
+
+  .cosmos-btn-ghost {
+    background: transparent;
+    border: none;
+    padding: 4px 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-cosmos-text);
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.12s ease;
+  }
+
+  .cosmos-btn-ghost:hover {
+    background: var(--color-cosmos-btn-hover-tint);
+  }
+
+  /* ──────────────────────────────────────────────
+     IMAGE CARDS  (feeds, shop, profile, cluster)
+     8px radius, no border, subtle scale on hover.
+     Price badge = bottom-left black pill.
+  ────────────────────────────────────────────── */
+  .cosmos-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--cosmos-radius-card);
+    background: var(--color-cosmos-surface-alt);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .cosmos-card:hover {
+    transform: scale(0.99);
+  }
+
+  .cosmos-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .cosmos-price-badge {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    background: var(--color-cosmos-price-badge);
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: var(--cosmos-radius-pill);
+    line-height: 1.4;
+  }
+
+  /* Save overlay — appears top-left on card hover (Image 10) */
+  .cosmos-card-save {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    pointer-events: none;
+  }
+
+  .cosmos-card:hover .cosmos-card-save {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Shop banner card — label bottom-left + "View" pill bottom-right */
+  .cosmos-banner-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--cosmos-radius-banner);
+    cursor: pointer;
+    aspect-ratio: 4 / 3;
+  }
+
+  .cosmos-banner-label {
+    position: absolute;
+    bottom: 12px;
+    left: 14px;
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 300;
+    color: #FFFFFF;
+    line-height: 1.2;
+  }
+
+  .cosmos-banner-btn {
+    position: absolute;
+    bottom: 12px;
+    right: 14px;
+    background: #000000;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: var(--cosmos-radius-pill);
+    border: none;
+    cursor: pointer;
+  }
+
+  /* ──────────────────────────────────────────────
+     IMAGE GRIDS
+  ────────────────────────────────────────────── */
+  .cosmos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--cosmos-grid-col-min), 1fr));
+    gap: var(--cosmos-grid-gap);
+    width: 100%;
+  }
+
+  .cosmos-grid-banners {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--cosmos-grid-col-banner), 1fr));
+    gap: var(--cosmos-grid-gap);
+    width: 100%;
+  }
+
+  /* ──────────────────────────────────────────────
+     MODALS  (Images 4, 7, 8)
+     Semi-opaque warm scrim + white dialog.
+  ────────────────────────────────────────────── */
+  .cosmos-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--color-cosmos-overlay);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cosmos-modal {
+    background: var(--color-cosmos-surface);
+    border-radius: var(--cosmos-radius-modal);
+    box-shadow: var(--cosmos-shadow-modal);
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+    animation: cosmos-modal-in 0.28s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+  }
+
+  .cosmos-modal-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--color-cosmos-text);
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .cosmos-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color-cosmos-text-secondary);
+    font-size: 16px;
+    transition: background 0.12s ease;
+  }
+
+  .cosmos-modal-close:hover {
+    background: var(--color-cosmos-surface-alt);
+  }
+
+  /* Settings modal — left sidebar nav + content area (Image 8) */
+  .cosmos-modal-settings {
+    max-width: 680px;
+    padding: 0;
+    display: flex;
+    overflow: hidden;
+  }
+
+  .cosmos-modal-sidebar {
+    width: var(--cosmos-settings-sidebar-width);
+    flex-shrink: 0;
+    padding: 24px 0;
+    border-right: 1px solid var(--color-cosmos-border);
+    border-radius: var(--cosmos-radius-modal) 0 0 var(--cosmos-radius-modal);
+  }
+
+  .cosmos-modal-sidebar-item {
+    display: block;
+    width: 100%;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-cosmos-text);
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.12s ease;
+  }
+
+  .cosmos-modal-sidebar-item:hover {
+    background: var(--color-cosmos-surface-alt);
+  }
+
+  .cosmos-modal-sidebar-item.active {
+    font-weight: 700;
+  }
+
+  .cosmos-modal-body {
+    flex: 1;
+    padding: 28px;
+    overflow-y: auto;
+    border-radius: 0 var(--cosmos-radius-modal) var(--cosmos-radius-modal) 0;
+  }
+
+  /* Dark extension tutorial modal (Image 4) */
+  .cosmos-modal-dark {
+    background: var(--color-cosmos-dark-modal);
+    color: var(--color-cosmos-text-on-dark);
+    border-radius: var(--cosmos-radius-modal);
+    box-shadow: var(--cosmos-shadow-modal);
+    padding: 32px;
+    width: 100%;
+    max-width: 560px;
+    animation: cosmos-modal-in 0.28s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+  }
+
+  .cosmos-modal-video {
+    background: var(--color-cosmos-dark-video);
+    border-radius: 12px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    gap: 8px;
+    margin: 20px 0;
+  }
+
+  /* ──────────────────────────────────────────────
+     INPUTS  (Image 8 — profile settings)
+     Off-white fill, subtle border, 8px radius.
+  ────────────────────────────────────────────── */
+  .cosmos-input {
+    width: 100%;
+    background: var(--color-cosmos-surface-input);
+    border: 1px solid var(--color-cosmos-border-input);
+    border-radius: var(--cosmos-radius-input);
+    padding: 10px 14px;
+    font-size: 14px;
+    color: var(--color-cosmos-text);
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .cosmos-input::placeholder {
+    color: var(--color-cosmos-text-muted);
+  }
+
+  .cosmos-input:focus {
+    border-color: var(--color-cosmos-text-secondary);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+  }
+
+  /* ──────────────────────────────────────────────
+     CATEGORY / FILTER TABS  (Image 5 — Shop)
+     "Show All | Home | Womens | Mens | …"
+     Plain text, bold = active, no bg.
+  ────────────────────────────────────────────── */
+  .cosmos-tab-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .cosmos-tab {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-cosmos-text-secondary);
+    cursor: pointer;
+    padding: 4px 0;
+    border: none;
+    background: none;
+    text-decoration: none;
+    transition: color 0.12s ease;
+  }
+
+  .cosmos-tab:hover {
+    color: var(--color-cosmos-text);
+  }
+
+  .cosmos-tab.active {
+    color: var(--color-cosmos-text);
+    font-weight: 700;
+  }
+
+  /* ──────────────────────────────────────────────
+     PROFILE PAGE TABS  (Images 1, 11)
+     "Elements 01 | Clusters 02" — outlined pills.
+  ────────────────────────────────────────────── */
+  .cosmos-tab-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    border-radius: var(--cosmos-radius-pill);
+    border: 1px solid var(--color-cosmos-border);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--color-cosmos-text);
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.12s ease;
+  }
+
+  .cosmos-tab-pill:hover {
+    background: var(--color-cosmos-btn-hover-tint);
+  }
+
+  .cosmos-tab-pill.active {
+    background: var(--color-cosmos-btn-primary);
+    color: var(--color-cosmos-btn-primary-fg);
+    border-color: var(--color-cosmos-btn-primary);
+  }
+
+  /* ──────────────────────────────────────────────
+     BADGES / PILLS
+  ────────────────────────────────────────────── */
+  .cosmos-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: var(--cosmos-radius-pill);
+    font-size: 12px;
+    font-weight: 500;
+    background: var(--color-cosmos-btn-primary);
+    color: var(--color-cosmos-btn-primary-fg);
+  }
+
+  /* ──────────────────────────────────────────────
+     PROFILE HEADER  (Images 1, 11)
+     Avatar left, name + handle, follower counts right.
+  ────────────────────────────────────────────── */
+  .cosmos-profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 28px 0 20px;
+  }
+
+  .cosmos-avatar {
+    border-radius: 9999px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .cosmos-profile-name {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--color-cosmos-text);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+
+  .cosmos-profile-handle {
+    font-size: 13px;
+    color: var(--color-cosmos-text-muted);
+    margin-top: 2px;
+  }
+
+  /* Cluster page — centered name + handle (Image 1) */
+  .cosmos-cluster-header {
+    text-align: center;
+    padding: 28px 0 16px;
+  }
+
+  .cosmos-cluster-name {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 300;
+    color: var(--color-cosmos-text);
+    letter-spacing: -0.01em;
+  }
+
+  .cosmos-cluster-meta {
+    font-size: 13px;
+    color: var(--color-cosmos-text-secondary);
+    margin-top: 4px;
+  }
+
+  /* ──────────────────────────────────────────────
+     RIGHT PANEL — Connections / Suggested  (Images 2, 3, 10)
+  ────────────────────────────────────────────── */
+  .cosmos-right-panel {
+    width: var(--cosmos-right-panel-width);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .cosmos-panel-heading {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-cosmos-text);
+    padding: 0 0 10px;
+  }
+
+  .cosmos-user-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+  }
+
+  .cosmos-user-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-cosmos-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .cosmos-user-sub {
+    font-size: 12px;
+    color: var(--color-cosmos-text-muted);
+  }
+
+  /* Connections list (Image 10 — image detail right panel) */
+  .cosmos-connection-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.12s ease;
+  }
+
+  .cosmos-connection-row:hover {
+    background: var(--color-cosmos-btn-hover-tint);
+  }
+
+  /* ──────────────────────────────────────────────
+     IMAGE DETAIL VIEW  (Image 10)
+     Full-height split: centered image left, info panel right.
+  ────────────────────────────────────────────── */
+  .cosmos-detail-layout {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .cosmos-detail-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    background: var(--color-cosmos-bg);
+    overflow-y: auto;
+  }
+
+  .cosmos-detail-image {
+    max-width: 100%;
+    max-height: calc(100vh - 64px);
+    border-radius: var(--cosmos-radius-card);
+    object-fit: contain;
+  }
+
+  /* Color swatches — bottom-left column (Image 10) */
+  .cosmos-swatch-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: fixed;
+    bottom: 40px;
+    left: 20px;
+  }
+
+  .cosmos-swatch {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  /* ──────────────────────────────────────────────
+     FOLLOWING FEED  (Images 2, 3)
+     Activity post: author row + 2-col image grid + carousel arrow.
+  ────────────────────────────────────────────── */
+  .cosmos-feed-post {
+    margin-bottom: 20px;
+  }
+
+  .cosmos-feed-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+
+  .cosmos-feed-author-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-cosmos-text);
+  }
+
+  .cosmos-feed-meta {
+    font-size: 12px;
+    color: var(--color-cosmos-text-muted);
+  }
+
+  .cosmos-feed-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--cosmos-grid-gap);
+    position: relative;
+    border-radius: var(--cosmos-radius-card);
+    overflow: hidden;
+  }
+
+  .cosmos-carousel-arrow {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--color-cosmos-text);
+    box-shadow: var(--cosmos-shadow-card);
+    z-index: 1;
+  }
+
+  /* ──────────────────────────────────────────────
+     "FINISH SETUP" CARD  (Images 1, 2)
+     Parchment card, checklist rows with chevron.
+  ────────────────────────────────────────────── */
+  .cosmos-setup-card {
+    background: var(--color-cosmos-surface-alt);
+    border-radius: var(--cosmos-radius-modal);
+    padding: 20px 20px 16px;
+    width: 220px;
+    flex-shrink: 0;
+  }
+
+  .cosmos-setup-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-cosmos-text);
+    margin-bottom: 4px;
+  }
+
+  .cosmos-setup-desc {
+    font-size: 12px;
+    color: var(--color-cosmos-text-secondary);
+    margin-bottom: 14px;
+    line-height: 1.4;
+  }
+
+  .cosmos-setup-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-top: 1px solid var(--color-cosmos-border);
+    font-size: 13px;
+    color: var(--color-cosmos-text);
+    cursor: pointer;
+  }
+
+  /* ──────────────────────────────────────────────
+     NOTICE CARD  (Image 11 — "Your profile has a new look")
+  ────────────────────────────────────────────── */
+  .cosmos-notice-card {
+    background: var(--color-cosmos-surface);
+    border-radius: var(--cosmos-radius-modal);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: var(--cosmos-shadow-card);
+    border: 1px solid var(--color-cosmos-border);
+  }
+
+  .cosmos-notice-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-cosmos-text);
+    margin-bottom: 4px;
+  }
+
+  .cosmos-notice-body {
+    font-size: 13px;
+    color: var(--color-cosmos-text-secondary);
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  /* ──────────────────────────────────────────────
+     USER MENU DROPDOWN  (Image 9)
+     White popover, avatar + name + "Upgrade" pill,
+     menu items, theme switcher + grid-size row at bottom.
+  ────────────────────────────────────────────── */
+  .cosmos-user-menu {
+    background: var(--color-cosmos-surface);
+    border-radius: var(--cosmos-radius-modal);
+    box-shadow: var(--cosmos-shadow-popover);
+    padding: 16px 0 12px;
+    width: 200px;
+    overflow: hidden;
+  }
+
+  .cosmos-user-menu-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 0 16px 12px;
+    border-bottom: 1px solid var(--color-cosmos-border);
+  }
+
+  .cosmos-user-menu-item {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: var(--color-cosmos-text);
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.12s ease;
+  }
+
+  .cosmos-user-menu-item:hover {
+    background: var(--color-cosmos-surface-alt);
+  }
+
+  /* Theme / grid-size control row */
+  .cosmos-menu-control-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px 4px;
+    font-size: 13px;
+    color: var(--color-cosmos-text-secondary);
+    border-top: 1px solid var(--color-cosmos-border);
+  }
+
+  .cosmos-icon-btn-group {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .cosmos-icon-btn {
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--color-cosmos-text-secondary);
+    transition: background 0.12s ease, color 0.12s ease;
+  }
+
+  .cosmos-icon-btn:hover {
+    background: var(--color-cosmos-surface-alt);
+  }
+
+  .cosmos-icon-btn.active {
+    color: var(--color-cosmos-text);
+  }
+
+  /* ──────────────────────────────────────────────
+     FAB  — floating action button, bottom-right
+     (ⓘ info / × dismiss — visible in all screens)
+  ────────────────────────────────────────────── */
+  .cosmos-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    background: var(--color-cosmos-fab);
+    color: var(--color-cosmos-fab-fg);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: var(--cosmos-shadow-fab);
+    z-index: 60;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+
+  .cosmos-fab:hover {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+
+  /* ──────────────────────────────────────────────
+     "BACK TO TOP" pill  (Image 2)
+  ────────────────────────────────────────────── */
+  .cosmos-back-to-top {
+    position: fixed;
+    bottom: 72px;
+    right: 20px;
+    background: var(--color-cosmos-back-to-top);
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: var(--cosmos-radius-pill);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: var(--cosmos-shadow-card);
+    transition: opacity 0.15s ease;
+    z-index: 55;
+  }
+
+  .cosmos-back-to-top:hover {
+    opacity: 0.85;
+  }
+}
+
+/* ============================================================
+   BASE LAYER
+   ============================================================ */
+
+@layer base {
+
+  /* Hide all scrollbars — cosmos.so global pattern */
+  * :not(body) {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  * :not(body) ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Remove tap highlight on mobile */
+  * {
+    -webkit-tap-highlight-color: transparent;
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Cosmos heading rhythm:
+     h1/h2 → GT Super, light 300, tight tracking
+     h3–h6 → Favorit, system sans */
+  h1,
+  h2 {
+    font-family: var(--font-gt-super), Georgia, serif;
+    font-weight: 300;
+    letter-spacing: -0.015em;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-favorit), system-ui, sans-serif;
+  }
 }
